@@ -20,15 +20,17 @@
     
     <style>
         :root {
-            --primary: #1a365d;
-            --primary-light: #2c5282;
-            --accent: #e53e3e;
-            --accent-hover: #c53030;
-            --gold: #d69e2e;
+            --navy: #0a1628;
+            --navy-light: #1a2d4d;
+            --red: #bf0a30;
+            --red-hover: #9c0827;
+            --white: #ffffff;
+            --silver: #c4c4c4;
+            --gold: #d4af37;
             --text: #1a202c;
             --text-light: #4a5568;
             --bg: #ffffff;
-            --bg-alt: #f7fafc;
+            --bg-alt: #f8f9fa;
             --border: #e2e8f0;
         }
         
@@ -56,14 +58,15 @@
         
         /* Header */
         header {
-            background: var(--primary);
+            background: var(--navy);
             color: white;
             padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 3px solid var(--red);
         }
         
         header .container {
@@ -80,7 +83,7 @@
         }
         
         .logo span {
-            color: var(--gold);
+            color: var(--red);
         }
         
         nav {
@@ -101,23 +104,25 @@
         }
         
         .cta-btn {
-            background: var(--accent);
+            background: var(--red);
             color: white;
             padding: 12px 24px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            border: 2px solid var(--red);
         }
         
         .cta-btn:hover {
-            background: var(--accent-hover);
+            background: var(--red-hover);
+            border-color: var(--red-hover);
             color: white;
         }
         
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.85) 0%, rgba(44, 82, 130, 0.8) 100%),
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.9) 0%, rgba(26, 45, 77, 0.85) 100%),
                         url('images/airstream-detail.jpg') center center / cover no-repeat;
             color: white;
             padding: 160px 0 100px;
@@ -131,10 +136,19 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
+            width: 100%;
+            height: 5px;
+            background: repeating-linear-gradient(90deg, var(--red) 0px, var(--red) 50px, var(--white) 50px, var(--white) 100px);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
-            background-size: cover;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: repeating-linear-gradient(90deg, var(--white) 0px, var(--white) 50px, var(--red) 50px, var(--red) 100px);
         }
         
         .hero-content {
@@ -144,15 +158,16 @@
         
         .hero-badge {
             display: inline-block;
-            background: var(--gold);
-            color: var(--primary);
-            padding: 8px 20px;
+            background: var(--red);
+            color: white;
+            padding: 10px 24px;
             border-radius: 30px;
             font-weight: 700;
             font-size: 0.875rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-bottom: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
         }
         
         .hero h1 {
@@ -184,19 +199,32 @@
         
         .phone-btn {
             background: white;
-            color: var(--primary);
+            color: var(--navy);
+            border-color: white;
         }
         
         .phone-btn:hover {
             background: var(--bg-alt);
-            color: var(--primary);
+            color: var(--navy);
+            border-color: var(--bg-alt);
         }
         
         /* Trust Badges */
         .trust-bar {
-            background: var(--bg-alt);
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
+            background: var(--navy);
+            color: white;
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .trust-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), var(--white), var(--red), var(--white), var(--red));
         }
         
         .trust-items {
@@ -211,19 +239,19 @@
         }
         
         .trust-item .icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
         
         .trust-item strong {
             display: block;
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--gold);
         }
         
         .trust-item span {
             font-size: 0.875rem;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.8);
         }
         
         /* Services */
@@ -239,7 +267,7 @@
         .section-header h2 {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--navy);
             margin-bottom: 15px;
         }
         
@@ -267,20 +295,21 @@
         
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(10, 22, 40, 0.15);
+            border-color: var(--red);
         }
         
         .service-card .icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 2rem;
+            border: 3px solid var(--red);
         }
         
         .service-card h3 {
@@ -296,8 +325,21 @@
         
         /* Why Choose Us */
         .why-us {
-            background: var(--bg-alt);
+            background: linear-gradient(180deg, var(--bg-alt) 0%, #eef2f7 100%);
             padding: 80px 0;
+            position: relative;
+        }
+        
+        .why-us::before {
+            content: '★ ★ ★ ★ ★';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--red);
+            font-size: 1.5rem;
+            letter-spacing: 10px;
+            opacity: 0.3;
         }
         
         .why-grid {
@@ -310,7 +352,7 @@
         .why-content h2 {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--navy);
             margin-bottom: 20px;
         }
         
@@ -332,9 +374,9 @@
         }
         
         .why-list .check {
-            width: 24px;
-            height: 24px;
-            background: var(--accent);
+            width: 26px;
+            height: 26px;
+            background: var(--red);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -343,6 +385,7 @@
             font-size: 0.875rem;
             flex-shrink: 0;
             margin-top: 2px;
+            box-shadow: 0 2px 8px rgba(191, 10, 48, 0.3);
         }
         
         .why-list strong {
@@ -377,7 +420,7 @@
         /* Gallery */
         .gallery {
             padding: 80px 0;
-            background: var(--bg-alt);
+            background: var(--bg);
         }
         
         .gallery-grid {
@@ -439,7 +482,7 @@
         }
         
         .testimonial-card .stars {
-            color: var(--gold);
+            color: var(--red);
             font-size: 1.25rem;
             margin-bottom: 15px;
         }
@@ -460,7 +503,7 @@
         .testimonial-card .avatar {
             width: 45px;
             height: 45px;
-            background: var(--primary);
+            background: var(--navy);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -481,9 +524,20 @@
         
         /* Contact */
         .contact {
-            background: var(--primary);
+            background: var(--navy);
             color: white;
             padding: 80px 0;
+            position: relative;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--red), var(--white), var(--red), var(--white), var(--red));
         }
         
         .contact-grid {
@@ -594,7 +648,7 @@
         
         /* Footer */
         footer {
-            background: #0f172a;
+            background: #050a12;
             color: white;
             padding: 40px 0;
             text-align: center;
@@ -623,7 +677,18 @@
         }
         
         footer .social a:hover {
-            background: var(--accent);
+            background: var(--red);
+        }
+        
+        .veteran-badge {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 8px 20px;
+            background: rgba(191, 10, 48, 0.2);
+            border: 1px solid var(--red);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            letter-spacing: 1px;
         }
         
         /* Mobile nav toggle */
@@ -750,9 +815,9 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge">🏆 Neighborhood Favorite 2022 & 2023</span>
+                <span class="hero-badge">🇺🇸 VETERAN OWNED & OPERATED 🇺🇸</span>
                 <h1>Knoxville's Premier<br>Mobile Detailing Service</h1>
-                <p>Professional auto detailing that comes to you. Cars, trucks, RVs, boats, motorcycles & more. Veteran-owned with 20+ years of experience.</p>
+                <p>Professional mobile detailing by a 10-year Army veteran. Cars, trucks, RVs, boats, tractors & more. 20+ years of precision and pride in every detail.</p>
                 <div class="hero-cta">
                     <a href="tel:8652582497" class="cta-btn phone-btn">📞 (865) 258-2497</a>
                     <a href="#contact" class="cta-btn">Get Free Quote</a>
@@ -767,21 +832,21 @@
             <div class="trust-items">
                 <div class="trust-item">
                     <div class="icon">🎖️</div>
-                    <strong>20+</strong>
-                    <span>Years Experience</span>
-                </div>
-                <div class="trust-item">
-                    <div class="icon">🇺🇸</div>
-                    <strong>Veteran</strong>
-                    <span>Owned & Operated</span>
+                    <strong>10 Years</strong>
+                    <span>U.S. Army Service</span>
                 </div>
                 <div class="trust-item">
                     <div class="icon">⭐</div>
-                    <strong>5-Star</strong>
-                    <span>Rated Service</span>
+                    <strong>20+ Years</strong>
+                    <span>Detailing Experience</span>
                 </div>
                 <div class="trust-item">
-                    <div class="icon">🚗</div>
+                    <div class="icon">🏆</div>
+                    <strong>2x Winner</strong>
+                    <span>Neighborhood Favorite</span>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">🚐</div>
                     <strong>100%</strong>
                     <span>Mobile Service</span>
                 </div>
@@ -1043,6 +1108,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="veteran-badge">🇺🇸 PROUD VETERAN-OWNED BUSINESS 🇺🇸</div>
             <div class="social">
                 <a href="https://www.facebook.com/ATeamMobileDetailing/" target="_blank" title="Facebook">f</a>
                 <a href="https://www.yelp.com/biz/a-team-mobile-detailing-knoxville" target="_blank" title="Yelp">Y</a>
