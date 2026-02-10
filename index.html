@@ -582,18 +582,66 @@
             background: var(--accent);
         }
         
+        /* Mobile nav toggle */
+        .mobile-cta {
+            display: none;
+        }
+        
         /* Mobile */
         @media (max-width: 768px) {
+            header {
+                padding: 12px 0;
+            }
+            
+            header .container {
+                flex-wrap: nowrap;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+            
             nav {
                 display: none;
             }
             
+            .mobile-cta {
+                display: block;
+                flex-shrink: 0;
+            }
+            
+            .mobile-cta a {
+                background: var(--accent);
+                color: white;
+                padding: 10px 16px;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 0.875rem;
+                white-space: nowrap;
+            }
+            
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
             .hero h1 {
-                font-size: 2.25rem;
+                font-size: 2rem;
             }
             
             .hero p {
                 font-size: 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-cta .cta-btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
             }
             
             .trust-items {
@@ -605,7 +653,7 @@
             }
             
             .why-image {
-                height: 300px;
+                height: 250px;
                 order: -1;
             }
             
@@ -616,27 +664,11 @@
             .section-header h2,
             .why-content h2,
             .contact h2 {
-                font-size: 2rem;
-            }
-        }
-        
-        /* Mobile nav toggle */
-        .mobile-cta {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-cta {
-                display: block;
+                font-size: 1.75rem;
             }
             
-            .mobile-cta a {
-                background: var(--accent);
-                color: white;
-                padding: 10px 20px;
-                border-radius: 6px;
-                text-decoration: none;
-                font-weight: 600;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
