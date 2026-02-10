@@ -356,24 +356,14 @@
         }
         
         .why-image {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             border-radius: 20px;
             height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 6rem;
             position: relative;
             overflow: hidden;
-        }
-        
-        .why-image::after {
-            content: '★★★★★';
-            position: absolute;
-            bottom: 30px;
-            font-size: 1.5rem;
-            color: var(--gold);
+            background: url('images/mascot-logo.jpg') center center / cover no-repeat;
         }
         
         /* Testimonials */
@@ -653,8 +643,10 @@
             }
             
             .why-image {
-                height: 250px;
+                height: 300px;
                 order: -1;
+                background-size: contain;
+                background-color: #f0f4f8;
             }
             
             .contact-grid {
@@ -814,9 +806,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="why-image">
-                    🚗✨
-                </div>
+                <div class="why-image"></div>
             </div>
         </div>
     </section>
