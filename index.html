@@ -48,7 +48,35 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
+        
+        /* Modern fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .service-card, .testimonial-card, .gallery-item {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
         
         .container {
             max-width: 1200px;
@@ -106,26 +134,111 @@
         .cta-btn {
             background: var(--red);
             color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
+            padding: 14px 28px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.2s;
-            border: 2px solid var(--red);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 4px 15px rgba(191, 10, 48, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .cta-btn:hover {
             background: var(--red-hover);
-            border-color: var(--red-hover);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(191, 10, 48, 0.5);
+        }
+        
+        /* Waving Flag Animation */
+        .flag-wave {
+            display: inline-block;
+            position: relative;
+            width: 32px;
+            height: 20px;
+            background: linear-gradient(180deg,
+                #bf0a30 0%, #bf0a30 7.7%,
+                #fff 7.7%, #fff 15.4%,
+                #bf0a30 15.4%, #bf0a30 23.1%,
+                #fff 23.1%, #fff 30.8%,
+                #bf0a30 30.8%, #bf0a30 38.5%,
+                #fff 38.5%, #fff 46.2%,
+                #bf0a30 46.2%, #bf0a30 53.9%,
+                #fff 53.9%, #fff 61.6%,
+                #bf0a30 61.6%, #bf0a30 69.3%,
+                #fff 69.3%, #fff 77%,
+                #bf0a30 77%, #bf0a30 84.7%,
+                #fff 84.7%, #fff 92.4%,
+                #bf0a30 92.4%, #bf0a30 100%
+            );
+            border-radius: 2px;
+            animation: wave 2s ease-in-out infinite;
+            transform-origin: left center;
+        }
+        
+        .flag-wave::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 53.9%;
+            background: #002868;
+        }
+        
+        .flag-wave::after {
+            content: '✦✦✦✦✦✦';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            font-size: 4px;
+            color: white;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            width: 38%;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: perspective(200px) rotateY(0deg) skewY(0deg); }
+            25% { transform: perspective(200px) rotateY(-5deg) skewY(1deg); }
+            50% { transform: perspective(200px) rotateY(0deg) skewY(-1deg); }
+            75% { transform: perspective(200px) rotateY(5deg) skewY(1deg); }
+        }
+        
+        /* Large animated flag for hero */
+        .hero-flag {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 75px;
+            opacity: 0.15;
+            animation: flagWave 3s ease-in-out infinite;
+        }
+        
+        .hero-flag svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+        }
+        
+        @keyframes flagWave {
+            0%, 100% { transform: translateY(-50%) scaleX(1) skewY(0deg); }
+            25% { transform: translateY(-50%) scaleX(1.02) skewY(2deg); }
+            50% { transform: translateY(-50%) scaleX(0.98) skewY(-1deg); }
+            75% { transform: translateY(-50%) scaleX(1.01) skewY(1deg); }
         }
         
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, rgba(10, 22, 40, 0.9) 0%, rgba(26, 45, 77, 0.85) 100%),
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.92) 0%, rgba(26, 45, 77, 0.88) 100%),
                         url('images/airstream-detail.jpg') center center / cover no-repeat;
             color: white;
-            padding: 160px 0 100px;
+            padding: 180px 0 120px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -137,8 +250,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: repeating-linear-gradient(90deg, var(--red) 0px, var(--red) 50px, var(--white) 50px, var(--white) 100px);
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), var(--white), var(--navy), var(--white), var(--red));
         }
         
         .hero::after {
@@ -147,8 +260,30 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: repeating-linear-gradient(90deg, var(--white) 0px, var(--white) 50px, var(--red) 50px, var(--red) 100px);
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), var(--white), var(--navy), var(--white), var(--red));
+        }
+        
+        /* Animated stars background */
+        .hero .stars-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+                              radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+                              radial-gradient(2px 2px at 50px 160px, rgba(255,255,255,0.3), transparent),
+                              radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.2), transparent),
+                              radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.3), transparent),
+                              radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.2), transparent);
+            background-size: 200px 200px;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
         
         .hero-content {
@@ -285,31 +420,54 @@
         }
         
         .service-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 20px;
+            padding: 35px 25px;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red), var(--navy), var(--red));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(10, 22, 40, 0.15);
-            border-color: var(--red);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(10, 22, 40, 0.2);
         }
         
         .service-card .icon {
-            width: 70px;
-            height: 70px;
+            width: 75px;
+            height: 75px;
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            border-radius: 50%;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 2rem;
-            border: 3px solid var(--red);
+            box-shadow: 0 10px 30px rgba(10, 22, 40, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover .icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .service-card h3 {
@@ -431,9 +589,10 @@
         
         .gallery-item {
             position: relative;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 4/3;
+            cursor: pointer;
         }
         
         .gallery-item.large {
@@ -444,11 +603,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
         .gallery-caption {
@@ -456,11 +615,17 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(10, 22, 40, 0.9));
             color: white;
-            padding: 40px 15px 15px;
+            padding: 50px 20px 20px;
             font-weight: 600;
             font-size: 0.9375rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
         }
         
         /* Testimonials */
@@ -475,10 +640,30 @@
         }
         
         .testimonial-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 5rem;
+            color: var(--red);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
         }
         
         .testimonial-card .stars {
@@ -594,8 +779,9 @@
         
         .contact-form {
             background: white;
-            border-radius: 12px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 45px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
         }
         
         .contact-form h3 {
@@ -619,19 +805,22 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.2s;
+            transition: all 0.3s;
+            background: #f8f9fa;
         }
         
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: var(--red);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(191, 10, 48, 0.1);
         }
         
         .form-group textarea {
@@ -813,14 +1002,15 @@
     
     <!-- Hero -->
     <section class="hero">
+        <div class="stars-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge">🇺🇸 VETERAN OWNED & OPERATED 🇺🇸</span>
+                <span class="hero-badge"><span class="flag-wave"></span> VETERAN OWNED & OPERATED <span class="flag-wave"></span></span>
                 <h1>Knoxville's Premier<br>Mobile Detailing Service</h1>
                 <p>Professional mobile detailing by a 10-year Army veteran. Cars, trucks, RVs, boats, tractors & more. 20+ years of precision and pride in every detail.</p>
                 <div class="hero-cta">
-                    <a href="tel:8652582497" class="cta-btn phone-btn">📞 (865) 258-2497</a>
-                    <a href="#contact" class="cta-btn">Get Free Quote</a>
+                    <a href="tel:8652582497" class="cta-btn phone-btn"><span class="flag-wave"></span> Call (865) 258-2497</a>
+                    <a href="#contact" class="cta-btn">Get Free Quote →</a>
                 </div>
             </div>
         </div>
