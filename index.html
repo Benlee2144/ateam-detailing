@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A-Team Mobile Detailing - Knoxville's premier mobile auto detailing service. We come to you! Cars, trucks, RVs, boats & more. 20+ years experience. Call (865) 258-2497">
+    <meta name="keywords" content="mobile detailing Knoxville, car detailing Knoxville TN, auto detailing near me, RV detailing, boat detailing, mobile car wash">
+    <title>A-Team Mobile Detailing | Knoxville's #1 Mobile Auto Detailing Service</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="A-Team Mobile Detailing | Knoxville TN">
+    <meta property="og:description" content="Professional mobile auto detailing - we come to you! Cars, trucks, RVs, boats & more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ateam-detailing.com">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #e53e3e;
+            --accent-hover: #c53030;
+            --gold: #d69e2e;
+            --text: #1a202c;
+            --text-light: #4a5568;
+            --bg: #ffffff;
+            --bg-alt: #f7fafc;
+            --border: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        .cta-btn {
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .cta-btn:hover {
+            background: var(--accent-hover);
+            color: white;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.03)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-cta .cta-btn {
+            font-size: 1.1rem;
+            padding: 16px 32px;
+        }
+        
+        .phone-btn {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .phone-btn:hover {
+            background: var(--bg-alt);
+            color: var(--primary);
+        }
+        
+        /* Trust Badges */
+        .trust-bar {
+            background: var(--bg-alt);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            text-align: center;
+        }
+        
+        .trust-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .trust-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .trust-item span {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .service-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            background: var(--bg-alt);
+            padding: 80px 0;
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .why-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .why-content p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            margin-bottom: 30px;
+        }
+        
+        .why-list {
+            list-style: none;
+        }
+        
+        .why-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .why-list .check {
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .why-list strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+        
+        .why-list span {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+        
+        .why-image {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-image::after {
+            content: '★★★★★';
+            position: absolute;
+            bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+        }
+        
+        .testimonial-card .stars {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-card p {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .testimonial-card .avatar {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .testimonial-card .author-info strong {
+            display: block;
+            color: var(--text);
+        }
+        
+        .testimonial-card .author-info span {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        /* Contact */
+        .contact {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .contact > .container > p {
+            opacity: 0.9;
+            font-size: 1.125rem;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-item .icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .contact-item strong {
+            display: block;
+            font-size: 1.125rem;
+        }
+        
+        .contact-item span {
+            opacity: 0.8;
+            font-size: 0.9375rem;
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+        }
+        
+        .contact-form h3 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .contact-form .cta-btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9375rem;
+        }
+        
+        footer .social {
+            margin-bottom: 20px;
+        }
+        
+        footer .social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 5px;
+            line-height: 40px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        
+        footer .social a:hover {
+            background: var(--accent);
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .trust-items {
+                gap: 30px;
+            }
+            
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-image {
+                height: 300px;
+                order: -1;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2,
+            .why-content h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Mobile nav toggle */
+        .mobile-cta {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-cta {
+                display: block;
+            }
+            
+            .mobile-cta a {
+                background: var(--accent);
+                color: white;
+                padding: 10px 20px;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">A-Team <span>Detailing</span></a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:8652582497" class="cta-btn">Call Now</a>
+            </nav>
+            <div class="mobile-cta">
+                <a href="tel:8652582497">📞 Call Now</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">🏆 Neighborhood Favorite 2022 & 2023</span>
+                <h1>Knoxville's Premier<br>Mobile Detailing Service</h1>
+                <p>Professional auto detailing that comes to you. Cars, trucks, RVs, boats, motorcycles & more. Veteran-owned with 20+ years of experience.</p>
+                <div class="hero-cta">
+                    <a href="tel:8652582497" class="cta-btn phone-btn">📞 (865) 258-2497</a>
+                    <a href="#contact" class="cta-btn">Get Free Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <div class="icon">🎖️</div>
+                    <strong>20+</strong>
+                    <span>Years Experience</span>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">🇺🇸</div>
+                    <strong>Veteran</strong>
+                    <span>Owned & Operated</span>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">⭐</div>
+                    <strong>5-Star</strong>
+                    <span>Rated Service</span>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">🚗</div>
+                    <strong>100%</strong>
+                    <span>Mobile Service</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Detailing Services</h2>
+                <p>From daily drivers to heavy equipment, we detail it all with the same professional care and attention.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🚗</div>
+                    <h3>Car Detailing</h3>
+                    <p>Complete interior and exterior detailing for sedans, coupes, and hatchbacks. We restore that showroom shine.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🛻</div>
+                    <h3>Truck Detailing</h3>
+                    <p>Full-size trucks need extra attention. We handle everything from lifted rigs to work trucks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🚐</div>
+                    <h3>RV Detailing</h3>
+                    <p>Get your RV road-trip ready. We clean and protect your home on wheels inside and out.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">⛵</div>
+                    <h3>Boat Detailing</h3>
+                    <p>Marine detailing that protects against the elements. Hull cleaning, waxing, and interior care.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🏍️</div>
+                    <h3>Motorcycle Detailing</h3>
+                    <p>Detailed cleaning and polishing for your bike. We treat it like our own.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🚜</div>
+                    <h3>Heavy Equipment</h3>
+                    <p>Semis, tractors, and commercial vehicles. No job is too big for A-Team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section id="about" class="why-us">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-content">
+                    <h2>Why Knoxville Chooses A-Team</h2>
+                    <p>As a 10-year Army veteran and Christian business owner, character and attention to detail are at the heart of everything we do. With over 20 years of expertise and a large family who depends on this business, we treat every vehicle like it's our own.</p>
+                    <ul class="why-list">
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>100% Mobile Service</strong>
+                                <span>We come to your home, office, or wherever is convenient for you.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>Veteran-Owned Business</strong>
+                                <span>10 years of Army service taught us discipline and attention to detail.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>Fair & Transparent Pricing</strong>
+                                <span>No hidden fees. We quote what we charge, every time.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>Open 7 Days a Week</strong>
+                                <span>Available when you need us, including weekends.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="why-image">
+                    🚗✨
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section id="reviews" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it — see why we're Knoxville's most trusted mobile detailing service.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Absolutely amazing work! He came to my house and made my 10-year-old truck look brand new. Professional, on time, and reasonably priced. Highly recommend!"</p>
+                    <div class="author">
+                        <div class="avatar">JM</div>
+                        <div class="author-info">
+                            <strong>James M.</strong>
+                            <span>Knoxville, TN</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Best detailing service in the area! He detailed our RV before a big trip and it looked incredible. The convenience of mobile service is unbeatable."</p>
+                    <div class="author">
+                        <div class="avatar">SK</div>
+                        <div class="author-info">
+                            <strong>Sarah K.</strong>
+                            <span>West Knoxville</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Used A-Team for my boat detailing. Outstanding job! He went above and beyond. Will definitely be using again for all my vehicles."</p>
+                    <div class="author">
+                        <div class="avatar">RW</div>
+                        <div class="author-info">
+                            <strong>Robert W.</strong>
+                            <span>Farragut, TN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Get That Shine?</h2>
+            <p>Contact us today for a free quote. We'll come to you anywhere in the greater Knoxville area.</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <div>
+                            <strong>(865) 258-2497</strong>
+                            <span>Call or text anytime</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">🕐</div>
+                        <div>
+                            <strong>8:00 AM - 5:00 PM</strong>
+                            <span>Open 7 days a week</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <strong>Knoxville, TN</strong>
+                            <span>Serving all of Knox County & surrounding areas</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">💳</div>
+                        <div>
+                            <strong>Easy Payment</strong>
+                            <span>Cash, card, Venmo, and more</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <h3>Get a Free Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle">Vehicle Type</label>
+                        <select id="vehicle" name="vehicle">
+                            <option value="">Select vehicle type</option>
+                            <option value="car">Car / Sedan</option>
+                            <option value="truck">Truck / SUV</option>
+                            <option value="rv">RV / Camper</option>
+                            <option value="boat">Boat</option>
+                            <option value="motorcycle">Motorcycle</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your vehicle and what services you need..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Request Free Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social">
+                <a href="https://www.facebook.com/ATeamMobileDetailing/" target="_blank" title="Facebook">f</a>
+                <a href="https://www.yelp.com/biz/a-team-mobile-detailing-knoxville" target="_blank" title="Yelp">Y</a>
+            </div>
+            <p>© 2026 A-Team Mobile Detailing. All rights reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.5;">Proudly serving Knoxville, TN and surrounding areas</p>
+        </div>
+    </footer>
+</body>
+</html>
